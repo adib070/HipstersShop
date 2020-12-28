@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a9d9c1f-ffb8-41a5-985b-1f4decee310c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/adservice/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/.settings/org.eclipse.buildship.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$AdServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/AdServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$CartServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CartServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$CheckoutServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CheckoutServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$CurrencyServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/CurrencyServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Ad$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Ad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AdResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AddItemRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AddItemRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AddItemRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Address$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Address.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$AddressOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Cart$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Cart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CartItem$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CartItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CartItemOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CartOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ChargeRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ChargeRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ChargeRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ChargeResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ChargeResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ChargeResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CreditCardInfo$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CreditCardInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CreditCardInfoOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CurrencyConversionRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CurrencyConversionRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$CurrencyConversionRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Empty$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Empty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$EmptyCartRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$EmptyCartRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$EmptyCartRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$EmptyOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetCartRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetCartRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetCartRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetProductRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetProductRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetProductRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetQuoteRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetQuoteRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetQuoteRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetQuoteResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetQuoteResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetQuoteResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetSupportedCurrenciesResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetSupportedCurrenciesResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$GetSupportedCurrenciesResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListProductsResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListProductsResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListProductsResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListRecommendationsRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListRecommendationsRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListRecommendationsRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListRecommendationsResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListRecommendationsResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ListRecommendationsResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Money$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Money.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$MoneyOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$OrderItem$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$OrderItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$OrderItemOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$OrderResult$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$OrderResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$OrderResultOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$PlaceOrderRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$PlaceOrderRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$PlaceOrderRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$PlaceOrderResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$PlaceOrderResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$PlaceOrderResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Product$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ProductOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SearchProductsRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SearchProductsRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SearchProductsRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SearchProductsResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SearchProductsResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SearchProductsResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SendOrderConfirmationRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SendOrderConfirmationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$SendOrderConfirmationRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ShipOrderRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ShipOrderRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ShipOrderRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ShipOrderResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ShipOrderResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo$ShipOrderResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/Demo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$EmailServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/EmailServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc$PaymentServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/PaymentServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc$ProductCatalogServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ProductCatalogServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc$RecommendationServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/RecommendationServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc$ShippingServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/ShippingServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/com/hipstershop/AdService$AdServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/com/hipstershop/AdService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/com/hipstershop/AdServiceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/bin/main/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/tracinglib/opentelemetry-auto-0.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/tracinglib/opentelemetry-auto-exporters-jaeger-0.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/tracinglib/opentelemetry-javaagent-all.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1m0vMLSr42YrLeSO38i6JagaEVn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a9d9c1f-ffb8-41a5-985b-1f4decee310c" name="Default Changelist" comment="" />
+      <created>1608643274197</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608643274197</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Kubernetes Addon">
+      <created>1608643473850</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608643473850</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Node js improvement">
+      <created>1608717116287</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608717116287</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Node js improvement">
+      <created>1608719942202</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608719942202</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Kubernetes Addon" />
+    <MESSAGE value="Node js improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Node js improvement" />
+  </component>
+</project>
