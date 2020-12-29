@@ -60,7 +60,7 @@ namespace cartservice
             }
 
             var exportType = Environment.GetEnvironmentVariable("EXPORT_TYPE") ?? "jaeger";
-            var serviceName = "CartService" + (exportType == "newrelic" ? string.Empty : $"-{exportType}");
+            var serviceName = "CartService" + (exportType == "jaeger" ? string.Empty : $"-{exportType}");
 
             builder.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(serviceName, null, null, false, $"{exportType}-{Guid.NewGuid().ToString()}"));
 

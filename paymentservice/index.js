@@ -19,12 +19,15 @@
 const path = require('path');
 const express = require("express");
 const bodyParser = require("body-parser");
+const InitiateMongoServer = require("./config/mongodb");
 
 
 const PORT = "8011";
 
 
 // Middleware
+InitiateMongoServer();
+
 
 const HipsterShopServer = require('./server');
 
