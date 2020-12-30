@@ -20,9 +20,19 @@ This doc explains how to build and run the Hipstershop source code locally.
    kubectl apply -f kubernetes-manifests.yaml
    minikube service frontend
       ```
-3. 
-     
+3.You can verify the pod,deployment and service using following command.
+     ```sh
+     kubectl get pods
 
+     kubectl get services
+
+     kubectl get deployment
+ 
+     ```  
+
+### Screenshot
+
+ [![Screenshot of store homepage](./Dag.png)](./Dag.png)
 
 ## Steps to run on Docker
 
@@ -42,10 +52,6 @@ This doc explains how to build and run the Hipstershop source code locally.
   
   - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
   
-### Screenshot
-
- [![Screenshot of store homepage](./Dag.png)](./Dag.png)
-
 
 ## Steps to run on Local Machine
 
