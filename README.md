@@ -32,7 +32,9 @@ This doc explains how to build and run the Hipstershop source code locally.
   
   - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
   
+### Screenshot
 
+ [![Screenshot of store homepage](./Dag.png)](./Dag.png)
 
 
 ## Steps to run on Local Machine
