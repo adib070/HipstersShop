@@ -99,3 +99,14 @@ This doc explains how to build and run the Hipstershop source code locally.
   - Once run above all steps you can access frontend service at  http://localhost:8081
   - Start the jaeger either using binary file or using docker desktop http://localhost:16686/ , You will see traces in jaeger
     
+## Steps to run on Docker
+
+> Note : Not need to run jaeger locally. It's in built in docker compose.
+
+1. Get the checkout of DockerCompose_Addon
+2. Open the terminal and go to Hipstershop folder.Execute following command.
+    ```sh
+    docker-compose up -d
+     ```
+    
+
