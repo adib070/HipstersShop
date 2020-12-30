@@ -6,13 +6,23 @@
 
 This doc explains how to build and run the Hipstershop source code locally.  
 
-## Prerequisites 
+# Prerequisites 
 - Jaeger
 - [Docker for Desktop](https://www.docker.com/products/docker-desktop).
-- JDK 11
-- Installation of Go
-- Installation of Python
-- Visual Studio
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/) (optional - see Local Cluster)
+
+## Steps to run on Kubernetes
+1. Get the checkout of Kubernete_Addon branch
+2. Open the terminal and go to Hipstershop folder. Execute following command.
+ 
+     ```sh
+   minikube start
+   kubectl apply -f kubernetes-manifests.yaml
+   minikube service frontend
+      ```
+3. 
+     
+
 
 ## Steps to run on Docker
 
@@ -38,6 +48,16 @@ This doc explains how to build and run the Hipstershop source code locally.
 
 
 ## Steps to run on Local Machine
+
+
+# Prerequisites 
+- Jaeger
+- [Docker for Desktop](https://www.docker.com/products/docker-desktop).
+- JDK 11
+- Installation of Go
+- Installation of Python
+- Visual Studio
+
 
 1. Currency Service (Node.js)
 
