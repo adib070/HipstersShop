@@ -12,7 +12,7 @@ This doc explains how to build and run the Hipstershop source code locally.
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/) (optional - see Local Cluster)
 
 ## Steps to run on Kubernetes
-1. Get the checkout of Kubernete_Addon branch
+1. Get the checkout of k8s_Addon branch
 2. Open the terminal and go to Hipstershop folder. Execute following command.
  
      ```sh
@@ -20,13 +20,21 @@ This doc explains how to build and run the Hipstershop source code locally.
    kubectl apply -f kubernetes-manifests.yaml
    minikube service frontend
       ```
-3. 
+3. You can verify the pod,deployment and service using following command.
+       
+      ```sh
+      kubectl get pods
+      kubectl get services
+      kubectl get deployment
+      ```
+       
+4. Docker images for the microservices are at : https://hub.docker.com/repository/docker/sohamsdeshmukh/tracing01 
      
 
 
 ## Steps to run on Docker
 
-> Note : Not need to run jaeger locally. It's in built in docker compose.
+> Note : No need to run jaeger locally. It is built in docker compose.
 
 1. Get the checkout of Docker_Compose_Addon branch
 2. Open the terminal and go to Hipstershop folder. Execute following command.
