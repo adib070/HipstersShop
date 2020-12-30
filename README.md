@@ -20,15 +20,15 @@ This doc explains how to build and run the Hipstershop source code locally.
    kubectl apply -f kubernetes-manifests.yaml
    minikube service frontend
       ```
-3.You can verify the pod,deployment and service using following command.
-     ```sh
+3. You can verify the pod,deployment and service using following command.
+     
+       ```sh
      kubectl get pods
 
      kubectl get services
 
      kubectl get deployment
- 
-     ```  
+       ```  
 
 ### Screenshot
 
