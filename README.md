@@ -50,7 +50,7 @@ This doc explains how to build and run the Hipstershop source code locally.
 ## Steps to run on Local Machine
 
 
-# Prerequisites 
+### Prerequisites 
 - Jaeger
 - [Docker for Desktop](https://www.docker.com/products/docker-desktop).
 - JDK 11
