@@ -134,8 +134,7 @@ This doc explains how to build and run the Hipstershop source code locally.
     -Dotel.exporter.jaeger.service.name=adService \
     -Dotel.exporter.jaeger.endpoint=localhost:14250 \
     -jar build/libs/hipstershop-0.1.0-SNAPSHOT-fat.jar
-     
-    ```
+     ```
 
  10.  Access the web frontend through your browser 
   
