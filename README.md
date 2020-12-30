@@ -27,6 +27,8 @@ This doc explains how to build and run the Hipstershop source code locally.
       kubectl get services
       kubectl get deployment
        ```
+       
+4. Docker images for the microservices are at : https://hub.docker.com/repository/docker/sohamsdeshmukh/tracing01
 
 ### Screenshot
 
@@ -128,7 +130,6 @@ This doc explains how to build and run the Hipstershop source code locally.
     ```
     
 9. Ad Service (Java)
- > Note : Download opentelemetry-javaagent-all.jar : https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v0.8.0/opentelemetry-javaagent-all.jar and copy the jar file in folder adservice/tracinglib
 
     ```sh
     cd adservice
@@ -139,6 +140,8 @@ This doc explains how to build and run the Hipstershop source code locally.
     -Dotel.exporter.jaeger.endpoint=localhost:14250 \
     -jar build/libs/hipstershop-0.1.0-SNAPSHOT-fat.jar
      ```
+     
+ > Note : Download opentelemetry-javaagent-all.jar : https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v0.8.0/opentelemetry-javaagent-all.jar and copy the jar file in folder adservice/tracinglib    
 
  10.  Access the web frontend through your browser 
   
