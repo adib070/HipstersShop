@@ -29,5 +29,9 @@ RUN GRPC_HEALTH_PROBE_VERSION=v0.3.5 && \
     chmod +x /bin/grpc_health_probe
 COPY --from=builder /go/bin/shippingservice /shippingservice
 ENV APP_PORT=50051
+
+ARG JAEGER_SERVICE_ADDR
+ENV JAEGER_SERVICE_ADDR=${JAEGER_SERVICE_ADDR}
+
 EXPOSE 50051
 ENTRYPOINT ["/shippingservice"]

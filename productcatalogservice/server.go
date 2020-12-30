@@ -33,7 +33,6 @@ import (
 	"go.opentelemetry.io/contrib/detectors/gcp"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"go.opentelemetry.io/otel"
-
 	//"go.opentelemetry.io/otel/exporters/otlp"
 	"go.opentelemetry.io/otel/exporters/stdout"
 	"go.opentelemetry.io/otel/exporters/trace/jaeger"
@@ -102,21 +101,9 @@ func detectResource() (*resource.Resource, error) {
 }
 
 func spanExporter() (exporttrace.SpanExporter, error) {
-	//var otlpEndpoint string
-	/*if ep := os.Getenv("OTEL_EXPORTER_OTLP_SPAN_ENDPOINT"); ep != "" {
-		otlpEndpoint = ep
-	} else if ep = os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"); ep != "" {
-		otlpEndpoint = ep
-	}
-	if otlpEndpoint != "" {
-		log.Infof("exporting to OTLP collector at %s", otlpEndpoint)
-		return otlp.NewExporter(
-			otlp.WithInsecure(),
-			otlp.WithAddress(otlpEndpoint),
-		)
-	}*/
 
-	addr := "http://localhost:14268/api/traces"
+
+	addr := os.Getenv("JAEGER_ENDPOINT")
 	if addr != "" {
 		log.Infof("exporting to Jaeger endpoint at %s", addr)
 		return jaeger.NewRawExporter(
@@ -211,7 +198,6 @@ func main() {
 	}()
 
 	if os.Getenv("PORT") != "" {
-		port = "4000"
 		port = os.Getenv("PORT")
 	}
 	log.Infof("starting grpc server at :%s", port)
@@ -225,16 +211,17 @@ func run(port string) string {
 		log.Fatal(err)
 	}
 	var srv *grpc.Server
-	if os.Getenv("DISABLE_STATS") == "" {
-		srv = grpc.NewServer(
-			grpc.UnaryInterceptor(otelgrpc.UnaryServerInterceptor()),
-			grpc.StreamInterceptor(otelgrpc.StreamServerInterceptor()),
-		)
-	} else {
-		srv = grpc.NewServer()
-	}
+	
+	srv = grpc.NewServer(
+		grpc.UnaryInterceptor(otelgrpc.UnaryServerInterceptor()),
+		grpc.StreamInterceptor(otelgrpc.StreamServerInterceptor()),
+	)
+	
+	//srv = grpc.NewServer()
+	
 
 	svc := &productCatalog{}
+	
 
 	pb.RegisterProductCatalogServiceServer(srv, svc)
 	healthpb.RegisterHealthServer(srv, svc)

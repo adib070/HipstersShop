@@ -22,20 +22,42 @@ import demo_pb2_grpc
 from logger import getJSONLogger
 logger = getJSONLogger('emailservice-client')
 
-from opencensus.trace.tracer import Tracer
-from opencensus.trace.exporters import stackdriver_exporter
-from opencensus.trace.ext.grpc import client_interceptor
+from opentelemetry import trace
+from opentelemetry.exporter import jaeger
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchExportSpanProcessor
+from opentelemetry import trace
+#gRPC Opentelemetry Instrumentation
+from opentelemetry.instrumentation.grpc import GrpcInstrumentorClient, client_interceptor
+from opentelemetry.sdk.trace.export import (
+    ConsoleSpanExporter,
+    SimpleExportSpanProcessor,
+)
+from opentelemetry import metrics
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import ConsoleMetricsExporter
 
-try:
-    exporter = stackdriver_exporter.StackdriverExporter()
-    tracer = Tracer(exporter=exporter)
-    tracer_interceptor = client_interceptor.OpenCensusClientInterceptor(tracer, host_port='0.0.0.0:8080')
-except:
-    tracer_interceptor = client_interceptor.OpenCensusClientInterceptor()
+# create a JaegerSpanExporter
+print("client")
+jaeger_exporter = jaeger.JaegerSpanExporter(
+    service_name='client',
+    # configure agent
+    agent_host_name='jaeger',
+    agent_port=6831,
+    # optional: configure also collector
+    #collector_host_name='jaeger',
+    #collector_port=14268,
+    #collector_endpoint='/api/traces?format=jaeger.thrift',
+    # collector_protocol='http',
+    # username=xxxx, # optional
+    # password=xxxx, # optional
+)
+# Create a BatchExportSpanProcessor and add the exporter to it
+span_processor = BatchExportSpanProcessor(jaeger_exporter)
 
 def send_confirmation_email(email, order):
-  channel = grpc.insecure_channel('0.0.0.0:8080')
-  channel = grpc.intercept_channel(channel, tracer_interceptor)
+  channel = grpc.insecure_channel('0.0.0.0:8081')
+  #channel = grpc.intercept_channel(channel, tracer_interceptor)
   stub = demo_pb2_grpc.EmailServiceStub(channel)
   try:
     response = stub.SendOrderConfirmation(demo_pb2.SendOrderConfirmationRequest(

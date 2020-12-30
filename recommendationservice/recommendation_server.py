@@ -28,13 +28,13 @@ from opentelemetry.instrumentation.grpc import GrpcInstrumentorServer, server_in
 jaeger_exporter = jaeger.JaegerSpanExporter(
     service_name='recommendation-service',
     # configure agent
-    agent_host_name='localhost',
+    agent_host_name='jaeger',
     agent_port=6831,
     # optional: configure also collector
-    # collector_host_name=‘localhost’,
-    # collector_port=14268,
-    # collector_endpoint=‘/api/traces?format=jaeger.thrift’,
-    # collector_protocol=‘http’,
+    #collector_host_name='jaeger',
+    #collector_port=14268,
+    #collector_endpoint='/api/traces?format=jaeger.thrift',
+    # collector_protocol='http',
     # username=xxxx, # optional
     # password=xxxx, # optional
 )
@@ -50,29 +50,8 @@ grpc_server_instrumentor = GrpcInstrumentorServer()
 grpc_server_instrumentor.instrument()
 #from logger import getJSONLogger
 #logger = getJSONLogger(‘recommendationservice-server’)
-def initStackdriverProfiling():
-  project_id = None
-  try:
-    project_id = os.environ["GCP_PROJECT_ID"]
-  except KeyError:
-    # Environment variable not set
-    pass
-  '''for retry in range(1,4):
-    try:
-      if project_id:
-        googlecloudprofiler.start(service=‘recommendation_server’, service_version=‘1.0.0’, verbose=0, project_id=project_id)
-      else:
-        googlecloudprofiler.start(service=‘recommendation_server’, service_version=‘1.0.0’, verbose=0)
-      logger.info(“Successfully started Stackdriver Profiler.“)
-      return
-    except (BaseException) as exc:
-      logger.info(“Unable to start Stackdriver Profiler Python agent. ” + str(exc))
-      if (retry < 4):
-        logger.info(“Sleeping %d seconds to retry Stackdriver Profiler agent initialization”%(retry*10))
-        time.sleep (1)
-      else:
-        logger.warning(“Could not initialize Stackdriver Profiler after retrying, giving up”)'''
-  return
+
+
 class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
     def ListRecommendations(self, request, context):
         max_responses = 5
@@ -99,49 +78,9 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
             status=health_pb2.HealthCheckResponse.UNIMPLEMENTED)
 if __name__ == "__main__":
     #logger.info(“initializing recommendationservice”)
-    print("hello start")
-    try:
-      if "DISABLE_PROFILER" in os.environ:
-        raise KeyError()
-      else:
-        #logger.info(“Profiler enabled.“)
-        print("123")
-        initStackdriverProfiling()
-    except KeyError:
-        print("hello")
-        #logger.info(“Profiler disabled.“)
-    '''try:
-      if “DISABLE_TRACING” in os.environ:
-        raise KeyError()
-      else:
-        #logger.info(“Tracing enabled.“)
-        #sampler = always_on.AlwaysOnSampler()
-        #tracer_interceptor = server_interceptor.OpenCensusServerInterceptor(sampler, exporter)
-    except (BaseException):
-        #logger.info(“Tracing disabled.“)
-        #tracer_interceptor = server_interceptor.OpenCensusServerInterceptor()‘’'
-    exporter = jaeger_exporter
-    try:
-      if “DISABLE_DEBUGGER” in os.environ:
-        raise KeyError()
-      else:
-        #logger.info(“Debugger enabled.“)
-        try:
-          ‘’'googleclouddebugger.enable(
-              module=‘recommendationserver’,
-              version=‘1.0.0’
-          )
-        except (Exception):
-            #logger.error(“Could not enable debugger”)
-            #logger.error(traceback.print_exc())
-            pass
-    except KeyError:
-        pass
-        #logger.info(“Debugger disabled.“)'''
-    port = "4003"
-    catalog_addr = "localhost:4000"
-    '''if catalog_addr == “”:
-        raise Exception(‘PRODUCT_CATALOG_SERVICE_ADDR environment variable not set’)'''
+    port = "8080"
+    catalog_addr = "productcatlog:4000"
+
     #logger.info(“product catalog address: ” + catalog_addr)
     channel = grpc.insecure_channel(catalog_addr)
     product_catalog_stub = demo_pb2_grpc.ProductCatalogServiceStub(channel)

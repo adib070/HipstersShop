@@ -29,5 +29,5 @@ WORKDIR /frontend
 COPY --from=builder /go/bin/frontend /frontend/server
 COPY ./templates ./templates
 COPY ./static ./static
-EXPOSE 8080
+EXPOSE 8081
 ENTRYPOINT ["/frontend/server"]

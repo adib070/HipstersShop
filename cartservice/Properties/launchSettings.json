@@ -7,7 +7,7 @@
     "cartservice": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:7528",
+      "applicationUrl": "http://cart:80",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

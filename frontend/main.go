@@ -25,14 +25,10 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
-
-	//"go.opentelemetry.io/otel/api/correlation"
-	//"github.com/newrelic/newrelic-telemetry-sdk-go/telemetry"
-	//"github.com/newrelic/opentelemetry-exporter-go/newrelic"
+	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux"
 	"go.opentelemetry.io/otel"
-
-	//"go.opentelemetry.io/otel/exporters/stdout"
+	
 	"go.opentelemetry.io/otel/exporters/trace/jaeger"
 	"go.opentelemetry.io/otel/propagation"
 	exporttrace "go.opentelemetry.io/otel/sdk/export/trace"
@@ -86,9 +82,9 @@ type frontendServer struct {
 	adSvcConn *grpc.ClientConn
 }
 
-func frontendserverConstructor(productCatalogSvcAddr string, currencySvcAddr string, cartSvcAddr string, recommendationSvcAddr string, checkoutSvcAddr string, shippingSvcAddr string, adSvcAddr string) *frontendServer {
+func frontendserverConstructor(productCatalogSvcAddr string,  currencySvcAddr string, cartSvcAddr string ,recommendationSvcAddr string,checkoutSvcAddr string,  shippingSvcAddr string, adSvcAddr string) *frontendServer{
 	obj := new(frontendServer)
-
+	
 	obj.productCatalogSvcAddr = productCatalogSvcAddr
 	obj.currencySvcAddr = currencySvcAddr
 	obj.cartSvcAddr = cartSvcAddr
@@ -115,14 +111,19 @@ func main() {
 	log.Out = os.Stdout
 
 	var traceExporter exporttrace.SpanExporter
+	
+	if addr := os.Getenv("JAEGER_ENDPOINT"); addr != "" {
+		log.Infof("exporting to Jaeger endpoint at %s", addr)
+			traceExporter,_ = jaeger.NewRawExporter(
+			jaeger.WithCollectorEndpoint(addr),
+			jaeger.WithProcess(jaeger.Process{
+				ServiceName: serviceName,
+			}),
+		)
 
-	log.Info("Defaulting to stdout exporter")
-	exporter, err := jaeger.NewRawExporter(jaeger.WithCollectorEndpoint("http://localhost:14268/api/traces"), jaeger.WithProcess(jaeger.Process{ServiceName: serviceName}))
-	if err != nil {
-		log.Fatal(err)
 	}
-	traceExporter = exporter
-
+	
+	
 	if os.Getenv("DISABLE_TRACING") == "" {
 		log.Info("Tracing enabled.")
 		initTracing(log, traceExporter)
@@ -131,19 +132,20 @@ func main() {
 	}
 
 	srvPort := port
-	/*if os.Getenv("PORT") != "" {
-		srvPort = os.Getenv("PORT")
-	}*/
-	addr := os.Getenv("LISTEN_ADDR")
-	var PRODUCT_CATALOG_SERVICE_ADDR = "localhost:4000"
-	var CURRENCY_SERVICE_ADDR = "localhost:9000"
-	var CART_SERVICE_ADDR = "localhost:7528"
-	var RECOMMENDATION_SERVICE_ADDR = "localhost:4003"
-	var CHECKOUT_SERVICE_ADDR = "localhost:4005"
-	var SHIPPING_SERVICE_ADDR = "localhost:4006"
-	var AD_SERVICE_ADDR = "localhost:9555"
 
-	svc := frontendserverConstructor(PRODUCT_CATALOG_SERVICE_ADDR, CURRENCY_SERVICE_ADDR, CART_SERVICE_ADDR, RECOMMENDATION_SERVICE_ADDR, CHECKOUT_SERVICE_ADDR, SHIPPING_SERVICE_ADDR, AD_SERVICE_ADDR)
+	addr := os.Getenv("LISTEN_ADDR")
+
+	var PRODUCT_CATALOG_SERVICE_ADDR = "productcatlog:4000"
+	var CURRENCY_SERVICE_ADDR = "currency:9000"
+	var CART_SERVICE_ADDR = "cart:80"
+	var RECOMMENDATION_SERVICE_ADDR = "recommended:8080"
+	var CHECKOUT_SERVICE_ADDR = "checkout:5050"
+	var SHIPPING_SERVICE_ADDR = "shipping:50051"
+	var AD_SERVICE_ADDR = "ad:9555"
+
+	svc := frontendserverConstructor(PRODUCT_CATALOG_SERVICE_ADDR,CURRENCY_SERVICE_ADDR,CART_SERVICE_ADDR,RECOMMENDATION_SERVICE_ADDR,CHECKOUT_SERVICE_ADDR,SHIPPING_SERVICE_ADDR,AD_SERVICE_ADDR)
+
+	
 
 	mustConnGRPC(ctx, &svc.currencySvcConn, svc.currencySvcAddr)
 	mustConnGRPC(ctx, &svc.productCatalogSvcConn, svc.productCatalogSvcAddr)
@@ -188,22 +190,13 @@ func initTracing(log logrus.FieldLogger, syncer exporttrace.SpanExporter) {
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 }
 
-/*func mustMapEnv(target *string, envKey string) {
-	v := os.Getenv(envKey)
-	if v == "" {
-		panic(fmt.Sprintf("environment variable %q not set", envKey))
-	}
-	*target = v
-}*/
-
 func mustConnGRPC(ctx context.Context, conn **grpc.ClientConn, addr string) {
 	var err error
-	*conn, err = grpc.DialContext(ctx, addr,
-		grpc.WithInsecure(),
-		grpc.WithTimeout(time.Second*3),
-		grpc.WithUnaryInterceptor(UnaryClientInterceptor()),
-		grpc.WithStreamInterceptor(StreamClientInterceptor()),
-	)
+	
+	*conn, err = grpc.Dial(addr, grpc.WithInsecure(),
+	grpc.WithUnaryInterceptor(otelgrpc.UnaryClientInterceptor()),
+	grpc.WithStreamInterceptor(otelgrpc.StreamClientInterceptor()),
+)
 	if err != nil {
 		panic(errors.Wrapf(err, "grpc: failed to connect %s", addr))
 	}
