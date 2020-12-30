@@ -14,6 +14,34 @@ This doc explains how to build and run the Hipstershop source code locally.
 - Installation of Python
 - Visual Studio
 
+## Steps to run on Docker
+
+> Note : Not need to run jaeger locally. It's in built in docker compose.
+
+1. Get the checkout of Docker_Compose_Addon branch
+2. Open the terminal and go to Hipstershop folder. Execute following command.
+  
+  ```sh
+    docker-compose up -d
+     ```
+4.  Access the web frontend through your browser 
+  
+  - Once run above all steps you can access frontend service at  http://localhost:8081
+  
+  - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
+  
+
+## Screenshots
+
+| Home Page                                                                                                         | Checkout Screen                                                                                                    |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [![Screenshot of store homepage](./docs/img/online-boutique-frontend-1.png)](./docs/img/online-boutique-frontend-1.png) | [![Screenshot of checkout screen](./docs/img/online-boutique-frontend-2.png)](./docs/img/online-boutique-frontend-2.png) |
+
+    
+
+
+
+
 ## Steps to run on Local Machine
 
 1. Currency Service (Node.js)
@@ -99,14 +127,5 @@ This doc explains how to build and run the Hipstershop source code locally.
   - Once run above all steps you can access frontend service at  http://localhost:8081
   - Start the jaeger either using binary file or using docker desktop http://localhost:16686/ , You will see traces in jaeger
     
-## Steps to run on Docker
 
-> Note : Not need to run jaeger locally. It's in built in docker compose.
-
-1. Get the checkout of DockerCompose_Addon
-2. Open the terminal and go to Hipstershop folder.Execute following command.
-    ```sh
-    docker-compose up -d
-     ```
-    
 
