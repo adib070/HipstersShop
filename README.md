@@ -124,6 +124,8 @@ This doc explains how to build and run the Hipstershop source code locally.
     ```
     
 9. Ad Service (Java)
+
+> Note : Download opentelemetry-javaagent-all.jar : https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v0.8.0/opentelemetry-javaagent-all.jar and copy the jar file in folder adservice/tracinglib
     
     ```sh
     cd adservice
@@ -136,7 +138,7 @@ This doc explains how to build and run the Hipstershop source code locally.
      
     ```
     
-> Note : Download opentelemetry-javaagent-all.jar : https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v0.8.0/opentelemetry-javaagent-all.jar and copy the jar file in folder adservice/tracinglib
+
 
  10.  Access the web frontend through your browser 
   
