@@ -1,0 +1,508 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      serviceAccountName: default
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_frontend
+          ports:
+            - containerPort: 8081
+          env:
+            # - name: PORT
+            # value: "8081"
+            # - name: PRODUCT_CATALOG_SERVICE_ADDR
+            #   value: "productcatlog:4000"
+            # - name: CURRENCY_SERVICE_ADDR
+            #   value: "currency:9000"
+            # - name: CART_SERVICE_ADDR
+            #   value: "cart:80"
+            # - name: RECOMMENDATION_SERVICE_ADDR
+            #   value: "recommended:8080"
+            # - name: SHIPPING_SERVICE_ADDR
+            #   value: "shipping:50051"
+            # - name: CHECKOUT_SERVICE_ADDR
+            #   value: "checkout:5050"
+            # - name: AD_SERVICE_ADDR
+            #   value: "ad:9555"
+            - name: JAEGER_ENDPOINT
+              value: "http://jaeger:14268/api/traces"
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: currency
+spec:
+  selector:
+    matchLabels:
+      app: currency
+  template:
+    metadata:
+      labels:
+        app: currency
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      serviceAccountName: default
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_currency
+          ports:
+            - containerPort: 9000
+          env:
+            - name: PORT
+              value: "9000"
+            - name: JAEGER_AGENT_HOST
+              value: "jaeger"
+            - name: JAEGER_AGENT_PORT
+              value: "6832"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: currency
+spec:
+  type: ClusterIP
+  selector:
+    app: currency
+  ports:
+    - name: grpc
+      port: 9000
+      targetPort: 9000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productcatlog
+spec:
+  selector:
+    matchLabels:
+      app: productcatlog
+  template:
+    metadata:
+      labels:
+        app: productcatlog
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      serviceAccountName: default
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_productcatlog
+          ports:
+            - name: grpc
+              containerPort: 4000
+          env:
+            - name: PORT
+              value: "4000"
+            - name: JAEGER_ENDPOINT
+              value: "http://jaeger:14268/api/traces"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: productcatlog
+spec:
+  type: ClusterIP
+  selector:
+    app: productcatlog
+  ports:
+    - name: grpc
+      port: 4000
+      targetPort: 4000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommended
+spec:
+  selector:
+    matchLabels:
+      app: recommended
+  template:
+    metadata:
+      labels:
+        app: recommended
+    spec:
+      hostAliases:
+        - ip: "192.168.2.104"
+          hostnames:
+          - "jaeger"
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_recommended
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatlog:4000"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recommended
+spec:
+  type: ClusterIP
+  selector:
+    app: recommended
+  ports:
+    - name: grpc
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart
+spec:
+  selector:
+    matchLabels:
+      app: cart
+  template:
+    metadata:
+      labels:
+        app: cart
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_cart
+          ports:
+            - containerPort: 80
+          env:
+            - name: PORT
+              value: "80"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart
+spec:
+  type: ClusterIP
+  selector:
+    app: cart
+  ports:
+    - name: grpc
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+spec:
+  selector:
+    matchLabels:
+      app: shipping
+  template:
+    metadata:
+      labels:
+        app: shipping
+    spec:
+      hostAliases:
+        - ip: "192.168.2.104"
+          hostnames:
+          - "jaeger"        
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_shipping
+          ports:
+            - containerPort: 50051
+          env:
+            - name: PORT
+              value: "50051"
+            - name: JAEGER_ENDPOINT
+              value: "http://jaeger:14268/api/traces"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping
+spec:
+  type: ClusterIP
+  selector:
+    app: shipping
+  ports:
+    - name: grpc
+      port: 50051
+      targetPort: 50051
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout
+spec:
+  selector:
+    matchLabels:
+      app: checkout
+  template:
+    metadata:
+      labels:
+        app: checkout
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_checkout
+          ports:
+            - containerPort: 5050
+          env:
+            # - name: PORT
+            #   value: "5050"
+            # - name: PRODUCT_CATALOG_SERVICE_ADDR
+            #   value: "productcatlog:4000"
+            # - name: SHIPPING_SERVICE_ADDR
+            #   value: "shipping:50051"
+            # - name: PAYMENT_SERVICE_ADDR
+            #   value: "payment:8011"
+            # - name: CURRENCY_SERVICE_ADDR
+            #   value: "currency:9000"
+            - name: CART_SERVICE_ADDR
+              value: "cart:80"
+            - name: JAEGER_ENDPOINT
+              value: "http://jaeger:14268/api/traces"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout
+spec:
+  type: ClusterIP
+  selector:
+    app: checkout
+  ports:
+    - name: grpc
+      port: 5050
+      targetPort: 5050
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+spec:
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_payment
+          ports:
+            - containerPort: 8011
+          env:
+            - name: PORT
+              value: "8011"
+            - name: JAEGER_AGENT_HOST
+              value: "jaeger"
+            - name: JAEGER_AGENT_PORT
+              value: "6831"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 220Mi
+            limits:
+              cpu: 200m
+              memory: 450Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment
+spec:
+  type: ClusterIP
+  selector:
+    app: payment
+  ports:
+    - name: grpc
+      port: 8011
+      targetPort: 8011
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ad
+spec:
+  selector:
+    matchLabels:
+      app: ad
+  template:
+    metadata:
+      labels:
+        app: ad
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      serviceAccountName: default
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_ad
+          ports:
+            - containerPort: 9555
+          env:
+            - name: PORT
+              value: "9555"
+          resources:
+            requests:
+              cpu: 200m
+              memory: 180Mi
+            limits:
+              cpu: 300m
+              memory: 300Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ad
+spec:
+  type: ClusterIP
+  selector:
+    app: ad
+  ports:
+    - name: grpc
+      port: 9555
+      targetPort: 9555
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email
+spec:
+  selector:
+    matchLabels:
+      app: email
+  template:
+    metadata:
+      labels:
+        app: email
+    spec:
+      hostAliases:
+      - ip: "192.168.2.104"
+        hostnames:
+        - "jaeger"
+      serviceAccountName: default
+      containers:
+        - name: server
+          image: sohamsdeshmukh/tracing01:hipstersshop_email
+          ports:
+            - containerPort: 4009
+          env:
+            - name: PORT
+              value: "4009"
+          resources:
+            requests:
+              cpu: 200m
+              memory: 180Mi
+            limits:
+              cpu: 300m
+              memory: 300Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: email
+spec:
+  type: ClusterIP
+  selector:
+    app: email
+  ports:
+    - name: grpc
+      port: 4009
+      targetPort: 4009
