@@ -6,7 +6,7 @@
 
 This doc explains how to build and run the Hipstershop source code locally.  
 
-# Prerequisites 
+### Prerequisites 
 - Jaeger
 - [Docker for Desktop](https://www.docker.com/products/docker-desktop).
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/) (optional - see Local Cluster)
