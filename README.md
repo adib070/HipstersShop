@@ -6,7 +6,51 @@
 
 This doc explains how to build and run the Hipstershop source code locally.  
 
-## Prerequisites 
+### Prerequisites 
+- Jaeger
+- [Docker for Desktop](https://www.docker.com/products/docker-desktop).
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/) (optional - see Local Cluster)
+
+## Steps to run on Kubernetes
+1. Get the checkout of Kubernete_Addon branch
+2. Open the terminal and go to Hipstershop folder. Execute following command.
+ 
+     ```sh
+   minikube start
+   kubectl apply -f kubernetes-manifests.yaml
+   minikube service frontend
+      ```
+3. 
+     
+
+
+## Steps to run on Docker
+
+> Note : Not need to run jaeger locally. It's in built in docker compose.
+
+1. Get the checkout of Docker_Compose_Addon branch
+2. Open the terminal and go to Hipstershop folder. Execute following command.
+  
+     ```sh
+     
+    docker-compose up -d
+     
+      ```
+4.  Access the web frontend through your browser 
+  
+  - Once run above all steps you can access frontend service at  http://localhost:8081
+  
+  - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
+  
+### Screenshot
+
+ [![Screenshot of store homepage](./Dag.png)](./Dag.png)
+
+
+## Steps to run on Local Machine
+
+
+### Prerequisites 
 - Jaeger
 - [Docker for Desktop](https://www.docker.com/products/docker-desktop).
 - JDK 11
@@ -14,7 +58,6 @@ This doc explains how to build and run the Hipstershop source code locally.
 - Installation of Python
 - Visual Studio
 
-## Steps to run on Local Machine
 
 1. Currency Service (Node.js)
 
@@ -98,15 +141,5 @@ This doc explains how to build and run the Hipstershop source code locally.
   
   - Once run above all steps you can access frontend service at  http://localhost:8081
   - Start the jaeger either using binary file or using docker desktop http://localhost:16686/ , You will see traces in jaeger
-    
-## Steps to run on Docker
-
-> Note : Not need to run jaeger locally. It's in built in docker compose.
-
-1. Get the checkout of DockerCompose_Addon
-2. Open the terminal and go to Hipstershop folder.Execute following command.
-    ```sh
-    docker-compose up -d
-     ```
     
 
