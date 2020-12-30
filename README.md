@@ -14,7 +14,7 @@ This doc explains how to build and run the Hipstershop source code locally.
 - Installation of Python
 - Visual Studio
 
-## Steps
+## Steps to run on Local Machine
 
 1. Currency Service (Node.js)
 
@@ -97,5 +97,5 @@ This doc explains how to build and run the Hipstershop source code locally.
  10.  Access the web frontend through your browser 
   
   - Once run above all steps you can access frontend service at  http://localhost:8081
-  - start the jaeger either using binary file or using docker desktop http://localhost:16686/ , You will see traces in jaeger
+  - Start the jaeger either using binary file or using docker desktop http://localhost:16686/ , You will see traces in jaeger
     
