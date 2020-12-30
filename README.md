@@ -21,24 +21,17 @@ This doc explains how to build and run the Hipstershop source code locally.
 1. Get the checkout of Docker_Compose_Addon branch
 2. Open the terminal and go to Hipstershop folder. Execute following command.
   
-  ```sh
+     ```sh
+     
     docker-compose up -d
-     ```
+     
+      ```
 4.  Access the web frontend through your browser 
   
   - Once run above all steps you can access frontend service at  http://localhost:8081
   
   - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
   
-
-## Screenshots
-
-| Home Page                                                                                                         | Checkout Screen                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [![Screenshot of store homepage](./docs/img/online-boutique-frontend-1.png)](./docs/img/online-boutique-frontend-1.png) | [![Screenshot of checkout screen](./docs/img/online-boutique-frontend-2.png)](./docs/img/online-boutique-frontend-2.png) |
-
-    
-
 
 
 
