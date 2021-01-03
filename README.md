@@ -31,6 +31,7 @@ This doc explains how to build and run the Hipstershop source code locally.
        
 4. Docker images for the microservices are at : https://hub.docker.com/repository/docker/sohamsdeshmukh/tracing01
 
+> Note : Need to change IP addres in kubernetes-manifests.yaml file according to your IP address.
 ### Screenshot
 
  [![Screenshot of store homepage](./Dag.png)](./Dag.png)
