@@ -439,6 +439,10 @@ spec:
           env:
             - name: PORT
               value: "9555"
+            - name: EXPORTER
+              value: "jaeger"
+            - name: EXPORTER_ENDPOINT
+              value: "jaeger:14250"
           resources:
             requests:
               cpu: 200m
