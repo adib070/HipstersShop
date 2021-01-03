@@ -1,5 +1,6 @@
 FROM adoptopenjdk/openjdk11 as builder
-
+ENV EXPORTER=jaeger
+ENV EXPORTER_ENDPOINT=jaeger:14250
 WORKDIR /usr/app
 COPY ./build/libs/hipstershop-0.1.0-SNAPSHOT-fat.jar /usr/app/
 COPY ./tracinglib/opentelemetry-javaagent-all.jar /usr/app/
