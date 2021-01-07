@@ -1,22 +1,43 @@
+//tracing.js
 'use strict';
-
-const opentelemetry = require('@opentelemetry/api');
 const { NodeTracerProvider } = require('@opentelemetry/node');
-const { SimpleSpanProcessor } = require('@opentelemetry/tracing');
+const { SimpleSpanProcessor } = require("@opentelemetry/tracing");
 const { JaegerExporter } = require('@opentelemetry/exporter-jaeger');
-const { JaegerHttpTracePropagator } = require('@opentelemetry/propagator-jaeger');
+const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector-grpc')
 
-const { B3Propagator } = require('@opentelemetry/core');
+const exportType = process.env.EXPORT_TYPE || "jaeger"
+console.log("Exporter type Set To :" + exportType)
 
-const provider = new NodeTracerProvider();
+const OTLP_HEADERS = {
+    'Api-Key': process.env.OTLOP_API_KEY,
+}
 
-const exporter = new JaegerExporter({
-    serviceName: "currency",
-    JAEGER_ENDPOINT: "jaeger:14250",
-    OTEL_PROPOGATOR: JaegerHttpTracePropagator
-});
+function getExporter(exporterType) {
+    switch (exporterType) {
+        case 'otlp':
+            return new CollectorTraceExporter({
+                headers: new OTLP_HEADERS,
+                url: process.env.OTEL_EXPORTER_OTLP_SPAN_ENDPOINT
+            })
+        case 'jaeger':
+        default:
+            console.log("Jaeger Set  ")
+            return new JaegerExporter({
+                serviceName: process.env.SERVICE_NAME || "Currency",
+                endpoint: process.env.ENDPOINT || "jaeger:14250",
+                username: process.env.USER_NAME,
+                password: process.env.PASSWORD
 
-provider.propagator = JaegerHttpTracePropagator;
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.register();
+            })
+    }
+}
+
+const exporter = getExporter(exportType)
+const traceProvider = new NodeTracerProvider()
+traceProvider.addSpanProcessor(
+    new SimpleSpanProcessor(exporter)
+)
+
+traceProvider.register()
+
 console.log("tracing initialized");

@@ -22,7 +22,7 @@ const bodyParser = require("body-parser");
 const InitiateMongoServer = require("./config/mongodb");
 
 
-const PORT = "8011";
+const PORT = process.env.PORT || "8011";
 
 
 // Middleware

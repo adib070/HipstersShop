@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8a9d9c1f-ffb8-41a5-985b-1f4decee310c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cartservice/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkoutservice/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkoutservice/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/adservice/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/adservice/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkoutservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/email_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/email_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currencyservice/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currencyservice/tracing.js" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/tracing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emailservice/email_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/email_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/handlers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/rpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/rpc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes-manifests.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes-manifests.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paymentservice/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paymentservice/tracing.js" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/tracing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/productcatalogservice/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/server_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/server_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recommendationservice/recommendation_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/recommendation_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/tracing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shippingservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +55,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -103,5 +109,11 @@
     <MESSAGE value="Kubernetes Addon" />
     <MESSAGE value="Node js improvement" />
     <option name="LAST_COMMIT_MESSAGE" value="Node js improvement" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="606" y="242" key="RollbackChangesDialog" timestamp="1610026991392">
+      <screen x="0" y="23" width="1792" height="1043" />
+    </state>
+    <state x="606" y="242" key="RollbackChangesDialog/0.23.1792.1043@0.23.1792.1043" timestamp="1610026991392" />
   </component>
 </project>

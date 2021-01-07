@@ -36,7 +36,6 @@ import (
 )
 
 const (
-	port            = "8081"
 	defaultCurrency = "USD"
 	cookieMaxAge    = 60 * 60 * 48
 
@@ -131,17 +130,18 @@ func main() {
 		log.Info("Tracing disabled.")
 	}
 
-	srvPort := port
+	var port = os.Getenv("PORT")
+  srvPort := port
 
 	addr := os.Getenv("LISTEN_ADDR")
 
-	var PRODUCT_CATALOG_SERVICE_ADDR = "productcatlog:4000"
-	var CURRENCY_SERVICE_ADDR = "currency:9000"
-	var CART_SERVICE_ADDR = "cart:80"
-	var RECOMMENDATION_SERVICE_ADDR = "recommended:8080"
-	var CHECKOUT_SERVICE_ADDR = "checkout:5050"
-	var SHIPPING_SERVICE_ADDR = "shipping:50051"
-	var AD_SERVICE_ADDR = "ad:9555"
+    var PRODUCT_CATALOG_SERVICE_ADDR = os.Getenv("PRODUCT_CATALOG_SERVICE_ADDR") //"productcatlog:4000"
+    var CURRENCY_SERVICE_ADDR = os.Getenv("CURRENCY_SERVICE_ADDR") //"currency:9000"
+    var CART_SERVICE_ADDR = os.Getenv("CART_SERVICE_ADDR")//"cart:80"
+    var RECOMMENDATION_SERVICE_ADDR = os.Getenv("CART_SERVICE_ADDR") //"recommended:8080"
+    var CHECKOUT_SERVICE_ADDR = os.Getenv("CHECKOUT_SERVICE_ADDR") //"checkout:5050"
+    var SHIPPING_SERVICE_ADDR = os.Getenv("SHIPPING_SERVICE_ADDR")//"shipping:50051"
+    var AD_SERVICE_ADDR = os.Getenv("AD_SERVICE_ADDR")//"ad:9555"
 
 	svc := frontendserverConstructor(PRODUCT_CATALOG_SERVICE_ADDR,CURRENCY_SERVICE_ADDR,CART_SERVICE_ADDR,RECOMMENDATION_SERVICE_ADDR,CHECKOUT_SERVICE_ADDR,SHIPPING_SERVICE_ADDR,AD_SERVICE_ADDR)
 

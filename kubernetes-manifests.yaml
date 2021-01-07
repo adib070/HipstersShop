@@ -12,7 +12,7 @@ spec:
         app: frontend
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -22,25 +22,24 @@ spec:
           ports:
             - containerPort: 8081
           env:
-            # - name: PORT
-            # value: "8081"
-            # - name: PRODUCT_CATALOG_SERVICE_ADDR
-            #   value: "productcatlog:4000"
-            # - name: CURRENCY_SERVICE_ADDR
-            #   value: "currency:9000"
-            # - name: CART_SERVICE_ADDR
-            #   value: "cart:80"
-            # - name: RECOMMENDATION_SERVICE_ADDR
-            #   value: "recommended:8080"
-            # - name: SHIPPING_SERVICE_ADDR
-            #   value: "shipping:50051"
-            # - name: CHECKOUT_SERVICE_ADDR
-            #   value: "checkout:5050"
-            # - name: AD_SERVICE_ADDR
-            #   value: "ad:9555"
+            - name: PORT
+              value: "8081"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatlog:4000"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currency:9000"
+            - name: CART_SERVICE_ADDR
+              value: "cart:80"
+            - name: RECOMMENDATION_SERVICE_ADDR
+              value: "recommended:8080"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shipping:50051"
+            - name: CHECKOUT_SERVICE_ADDR
+              value: "checkout:5050"
+            - name: AD_SERVICE_ADDR
+              value: "ad:9555"
             - name: JAEGER_ENDPOINT
               value: "http://jaeger:14268/api/traces"
-
           resources:
             requests:
               cpu: 100m
@@ -76,22 +75,29 @@ spec:
         app: currency
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
       containers:
         - name: server
-          image: sohamsdeshmukh/tracing01:hipstersshop_currency
+          image: adib070/currency
           ports:
             - containerPort: 9000
           env:
+            - name: EXPORT_TYPE
+              value: "jaeger"
             - name: PORT
               value: "9000"
-            - name: JAEGER_AGENT_HOST
-              value: "jaeger"
-            - name: JAEGER_AGENT_PORT
-              value: "6832"
+            - name: SERVICE_NAME
+              value: "currency"
+            - name: USER_NAME
+              value: "LMSTv2 eNezr47MIT982R465yI9"
+            - name: PASSWORD
+              value: "abcd"
+            - name: ENDPOINT
+              value: "http://jaeger:14268/api/traces"
+
           resources:
             requests:
               cpu: 100m
@@ -127,7 +133,7 @@ spec:
         app: productcatlog
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -177,7 +183,7 @@ spec:
         app: recommended
     spec:
       hostAliases:
-        - ip: "192.168.2.104"
+        - ip: "192.168.9.151"
           hostnames:
           - "jaeger"
       containers:
@@ -190,6 +196,10 @@ spec:
               value: "8080"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
               value: "productcatlog:4000"
+            - name: USER
+              value: "LMSTv2 PfUWa4x447q5DA4QyJM3"
+            - name: PASSWORD
+              value: "abcd"
           resources:
             requests:
               cpu: 100m
@@ -225,17 +235,25 @@ spec:
         app: cart
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       containers:
         - name: server
-          image: sohamsdeshmukh/tracing01:hipstersshop_cart
+          image: vinitaaher/hipstershop:hipstersshop_cart
           ports:
             - containerPort: 80
           env:
             - name: PORT
               value: "80"
+            - name: JAEGER_ENDPOINT
+              value: "http://jaeger-collector:14268/api/traces"
+            - name: JAEGER_SERVICE_NAME
+              value: "CART"
+            - name: JAEGER_USER
+              value: "LMSTv2 eNezr47MIT982R465yI9"
+            - name: JAEGER_PASSWORD
+              value: "abcd"
           resources:
             requests:
               cpu: 100m
@@ -271,7 +289,7 @@ spec:
         app: shipping
     spec:
       hostAliases:
-        - ip: "192.168.2.104"
+        - ip: "192.168.9.151"
           hostnames:
           - "jaeger"        
       containers:
@@ -319,7 +337,7 @@ spec:
         app: checkout
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       containers:
@@ -328,16 +346,16 @@ spec:
           ports:
             - containerPort: 5050
           env:
-            # - name: PORT
-            #   value: "5050"
-            # - name: PRODUCT_CATALOG_SERVICE_ADDR
-            #   value: "productcatlog:4000"
-            # - name: SHIPPING_SERVICE_ADDR
-            #   value: "shipping:50051"
-            # - name: PAYMENT_SERVICE_ADDR
-            #   value: "payment:8011"
-            # - name: CURRENCY_SERVICE_ADDR
-            #   value: "currency:9000"
+            - name: PORT
+              value: "5050"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatlog:4000"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shipping:50051"
+            - name: PAYMENT_SERVICE_ADDR
+              value: "payment:8011"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currency:9000"
             - name: CART_SERVICE_ADDR
               value: "cart:80"
             - name: JAEGER_ENDPOINT
@@ -377,21 +395,28 @@ spec:
         app: payment
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       containers:
         - name: server
-          image: sohamsdeshmukh/tracing01:hipstersshop_payment
+          image: adib070/payment
           ports:
             - containerPort: 8011
           env:
-            - name: PORT
-              value: "8011"
-            - name: JAEGER_AGENT_HOST
+            - name: EXPORT_TYPE
               value: "jaeger"
-            - name: JAEGER_AGENT_PORT
-              value: "6831"
+            - name: PORT
+              value: "9000"
+            - name: SERVICE_NAME
+              value: "Payment"
+            - name: USER_NAME
+              value: "LMSTv2 eNezr47MIT982R465yI9"
+            - name: PASSWORD
+              value: "abcd"
+            - name: ENDPOINT
+              value: "http://jaeger:14268/api/traces"
+
           resources:
             requests:
               cpu: 100m
@@ -427,13 +452,13 @@ spec:
         app: ad
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
       containers:
         - name: server
-          image: sohamsdeshmukh/tracing01:hipstersshop_ad
+          image: vinitaaher/hipstershop:hipstersshop_ad
           ports:
             - containerPort: 9555
           env:
@@ -443,6 +468,8 @@ spec:
               value: "jaeger"
             - name: EXPORTER_ENDPOINT
               value: "jaeger:14250"
+            - name: SERVICE_NAME
+              value: "ADSERVICE"
           resources:
             requests:
               cpu: 200m
@@ -478,7 +505,7 @@ spec:
         app: email
     spec:
       hostAliases:
-      - ip: "192.168.2.104"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -490,6 +517,10 @@ spec:
           env:
             - name: PORT
               value: "4009"
+            - name: USER
+              value: "LMSTv2 PfUWa4x447q5DA4QyJM3"
+            - name: PASSWORD
+              value: "abcd"
           resources:
             requests:
               cpu: 200m

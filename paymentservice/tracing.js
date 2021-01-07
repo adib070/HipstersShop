@@ -23,8 +23,10 @@ function getExporter(exporterType) {
         default:
             console.log("Jaeger Set  ")
             return new JaegerExporter({
-                serviceName: process.env.SERVICE_NAME || "Payments",
-                JAEGER_ENDPOINT: process.env.JAEGER_ENDPOINT || "http://jaeger-collector:14268",
+                serviceName: process.env.SERVICE_NAME || "Payment",
+                endpoint: process.env.ENDPOINT || "jaeger:14250",
+                username: process.env.USER_NAME,
+                password: process.env.PASSWORD
 
             })
     }

@@ -35,8 +35,8 @@ jaeger_exporter = jaeger.JaegerSpanExporter(
     #collector_port=14268,
     #collector_endpoint='/api/traces?format=jaeger.thrift',
     # collector_protocol='http',
-    # username=xxxx, # optional
-    # password=xxxx, # optional
+    username=user, # optional
+    password=password, # optional
 )
 # Create a BatchExportSpanProcessor and add the exporter to it
 print("batch")
@@ -78,7 +78,7 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
             status=health_pb2.HealthCheckResponse.UNIMPLEMENTED)
 if __name__ == "__main__":
     #logger.info(“initializing recommendationservice”)
-    port = "8080"
+    port = os.environ['PORT']
     catalog_addr = "productcatlog:4000"
 
     #logger.info(“product catalog address: ” + catalog_addr)

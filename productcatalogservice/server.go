@@ -59,7 +59,7 @@ var (
 	log          *logrus.Logger
 	extraLatency time.Duration
 
-	port = "4000"
+	port = os.Getenv("PORT")
 
 	reloadCatalog bool
 )

@@ -90,6 +90,10 @@ services:
     build: ./adservice
     ports:
       - 9555:9555
+    environment:
+      - EXPORTER=jaeger
+      - EXPORTER_ENDPOINT=jaeger:14250
+      - SERVICE_NAME=ADSERVICE
     depends_on:
       - checkout
   email:

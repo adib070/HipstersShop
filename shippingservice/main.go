@@ -47,7 +47,6 @@ import (
 )
 
 const (
-	defaultPort = "50051"
 	serviceName = "shippingservice"
 )
 
@@ -121,7 +120,7 @@ func initTracing() {
 func main() {
 	initTracing()
 
-	port := defaultPort
+  var port = os.Getenv("PORT")
 	if value, ok := os.LookupEnv("PORT"); ok {
 		port = value
 	}

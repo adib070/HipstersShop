@@ -37,18 +37,20 @@ from opentelemetry.sdk.trace.export import BatchExportSpanProcessor
 #gRPC OTEL
 from opentelemetry.instrumentation.grpc import GrpcInstrumentorServer, server_interceptor
 
+user = os.environ['USER']
+password = os.environ['PASSWORD']
 jaeger_exporter = jaeger.JaegerSpanExporter(
-    service_name='email-service',
-    # configure agent
-    agent_host_name='jaeger',
-    agent_port=6831,
-    # optional: configure also collector
-    #collector_host_name='jaeger',
-    #collector_port=14268,
-    #collector_endpoint='/api/traces?format=jaeger.thrift',
-    # collector_protocol='http',
-    # username=xxxx, # optional
-    # password=xxxx, # optional
+  service_name='email-service',
+  # configure agent
+  agent_host_name='jaeger',
+  agent_port=6831,
+  # optional: configure also collector
+  #collector_host_name='jaeger',
+  #collector_port=14268,
+  #collector_endpoint='/api/traces?format=jaeger.thrift',
+  # collector_protocol='http',
+  username=user, # optional
+  password=password, # optional
 )
 
 
@@ -146,7 +148,7 @@ def start(dummy_mode):
   demo_pb2_grpc.add_EmailServiceServicer_to_server(service, server)
   health_pb2_grpc.add_HealthServicer_to_server(service, server)
 
-  port = "4009"
+  port = os.environ['PORT']
   logger.info("listening on port: "+port)
   server.add_insecure_port('[::]:'+port)
   server.start()
