@@ -1,12 +1,18 @@
 ﻿<Properties StartupConfiguration="{7484D93F-8221-4C89-A660-54451D035CBB}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Startup.cs" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="79" Column="67" />
       <File FileName="appsettings.json" />
-      <File FileName="Properties/launchSettings.json" />
       <File FileName="Program.cs" />
       <File FileName="Dockerfile" />
       <File FileName="cartstore/RedisCartStore.cs" />
+      <File FileName="services/CartService.cs" />
+      <File FileName="cartstore/LocalCartStore.cs" />
+      <File FileName="protos/Cart.proto" />
+      <File FileName="scripts/run_redis_emulator_windows.bat" />
+      <File FileName="services/HealthCheckService.cs" />
+      <File FileName="tests/.gitignore" />
+      <File FileName="Properties/launchSettings.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,6 +21,10 @@
             <Node name="cartservice" expanded="True">
               <Node name="cartstore" expanded="True" />
               <Node name="Properties" expanded="True" />
+              <Node name="protos" expanded="True" />
+              <Node name="scripts" expanded="True" />
+              <Node name="services" expanded="True" />
+              <Node name="tests" expanded="True" />
               <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>

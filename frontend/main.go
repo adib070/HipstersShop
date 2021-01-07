@@ -24,15 +24,11 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
+	"go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux"
+	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+	"go.opentelemetry.io/otel"
 	"google.golang.org/grpc"
 
-	//"go.opentelemetry.io/otel/api/correlation"
-	//"github.com/newrelic/newrelic-telemetry-sdk-go/telemetry"
-	//"github.com/newrelic/opentelemetry-exporter-go/newrelic"
-	"go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux"
-	"go.opentelemetry.io/otel"
-
-	//"go.opentelemetry.io/otel/exporters/stdout"
 	"go.opentelemetry.io/otel/exporters/trace/jaeger"
 	"go.opentelemetry.io/otel/propagation"
 	exporttrace "go.opentelemetry.io/otel/sdk/export/trace"
@@ -115,13 +111,14 @@ func main() {
 	log.Out = os.Stdout
 
 	var traceExporter exporttrace.SpanExporter
-
-	log.Info("Defaulting to stdout exporter")
-	exporter, err := jaeger.NewRawExporter(jaeger.WithCollectorEndpoint("http://localhost:14268/api/traces"), jaeger.WithProcess(jaeger.Process{ServiceName: serviceName}))
-	if err != nil {
-		log.Fatal(err)
-	}
-	traceExporter = exporter
+	var addr1 = "http://localhost:14268/api/traces"
+	log.Infof("exporting to Jaeger endpoint at %s", addr1)
+	traceExporter, _ = jaeger.NewRawExporter(
+		jaeger.WithCollectorEndpoint(addr1),
+		jaeger.WithProcess(jaeger.Process{
+			ServiceName: serviceName,
+		}),
+	)
 
 	if os.Getenv("DISABLE_TRACING") == "" {
 		log.Info("Tracing enabled.")
@@ -131,16 +128,15 @@ func main() {
 	}
 
 	srvPort := port
-	/*if os.Getenv("PORT") != "" {
-		srvPort = os.Getenv("PORT")
-	}*/
+
 	addr := os.Getenv("LISTEN_ADDR")
+
 	var PRODUCT_CATALOG_SERVICE_ADDR = "localhost:4000"
 	var CURRENCY_SERVICE_ADDR = "localhost:9000"
 	var CART_SERVICE_ADDR = "localhost:7528"
-	var RECOMMENDATION_SERVICE_ADDR = "localhost:4003"
-	var CHECKOUT_SERVICE_ADDR = "localhost:4005"
-	var SHIPPING_SERVICE_ADDR = "localhost:4006"
+	var RECOMMENDATION_SERVICE_ADDR = "localhost:8280"
+	var CHECKOUT_SERVICE_ADDR = "localhost:5050"
+	var SHIPPING_SERVICE_ADDR = "localhost:50051"
 	var AD_SERVICE_ADDR = "localhost:9555"
 
 	svc := frontendserverConstructor(PRODUCT_CATALOG_SERVICE_ADDR, CURRENCY_SERVICE_ADDR, CART_SERVICE_ADDR, RECOMMENDATION_SERVICE_ADDR, CHECKOUT_SERVICE_ADDR, SHIPPING_SERVICE_ADDR, AD_SERVICE_ADDR)
@@ -188,21 +184,12 @@ func initTracing(log logrus.FieldLogger, syncer exporttrace.SpanExporter) {
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 }
 
-/*func mustMapEnv(target *string, envKey string) {
-	v := os.Getenv(envKey)
-	if v == "" {
-		panic(fmt.Sprintf("environment variable %q not set", envKey))
-	}
-	*target = v
-}*/
-
 func mustConnGRPC(ctx context.Context, conn **grpc.ClientConn, addr string) {
 	var err error
-	*conn, err = grpc.DialContext(ctx, addr,
-		grpc.WithInsecure(),
-		grpc.WithTimeout(time.Second*3),
-		grpc.WithUnaryInterceptor(UnaryClientInterceptor()),
-		grpc.WithStreamInterceptor(StreamClientInterceptor()),
+
+	*conn, err = grpc.Dial(addr, grpc.WithInsecure(),
+		grpc.WithUnaryInterceptor(otelgrpc.UnaryClientInterceptor()),
+		grpc.WithStreamInterceptor(otelgrpc.StreamClientInterceptor()),
 	)
 	if err != nil {
 		panic(errors.Wrapf(err, "grpc: failed to connect %s", addr))

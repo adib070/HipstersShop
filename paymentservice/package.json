@@ -31,6 +31,7 @@
         "grpc": "^1.24.4",
         "grpc-interceptor-opentracing": "^1.3.1",
         "mongoose": "^5.11.8",
+        "mysql": "^2.18.1",
         "pino": "^5.17.0",
         "simple-card-validator": "^1.1.0",
         "uuid": "^3.2.1"

@@ -74,7 +74,7 @@ namespace cartservice
                     break;
                 case "jaeger":
                 default:
-             
+                   var endpoint = "http://localdev.logicmonitor.com:8080/rest/traces/ingest";
                     builder.AddAspNetCoreInstrumentation().AddJaegerExporter();
                     Console.WriteLine("Jaeger Tracing completed");
                     break;

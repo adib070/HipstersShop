@@ -102,25 +102,12 @@ func detectResource() (*resource.Resource, error) {
 }
 
 func spanExporter() (exporttrace.SpanExporter, error) {
-	//var otlpEndpoint string
-	/*if ep := os.Getenv("OTEL_EXPORTER_OTLP_SPAN_ENDPOINT"); ep != "" {
-		otlpEndpoint = ep
-	} else if ep = os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"); ep != "" {
-		otlpEndpoint = ep
-	}
-	if otlpEndpoint != "" {
-		log.Infof("exporting to OTLP collector at %s", otlpEndpoint)
-		return otlp.NewExporter(
-			otlp.WithInsecure(),
-			otlp.WithAddress(otlpEndpoint),
-		)
-	}*/
 
-	addr := "http://localhost:14268/api/traces"
-	if addr != "" {
-		log.Infof("exporting to Jaeger endpoint at %s", addr)
+	var addr1 = "http://localhost:14268/api/traces"
+	if addr1 != "" {
+		log.Infof("exporting to Jaeger endpoint at %s", addr1)
 		return jaeger.NewRawExporter(
-			jaeger.WithCollectorEndpoint(addr),
+			jaeger.WithCollectorEndpoint(addr1),
 			jaeger.WithProcess(jaeger.Process{
 				ServiceName: serviceName,
 			}),
@@ -211,7 +198,6 @@ func main() {
 	}()
 
 	if os.Getenv("PORT") != "" {
-		port = "4000"
 		port = os.Getenv("PORT")
 	}
 	log.Infof("starting grpc server at :%s", port)
@@ -225,14 +211,13 @@ func run(port string) string {
 		log.Fatal(err)
 	}
 	var srv *grpc.Server
-	if os.Getenv("DISABLE_STATS") == "" {
-		srv = grpc.NewServer(
-			grpc.UnaryInterceptor(otelgrpc.UnaryServerInterceptor()),
-			grpc.StreamInterceptor(otelgrpc.StreamServerInterceptor()),
-		)
-	} else {
-		srv = grpc.NewServer()
-	}
+
+	srv = grpc.NewServer(
+		grpc.UnaryInterceptor(otelgrpc.UnaryServerInterceptor()),
+		grpc.StreamInterceptor(otelgrpc.StreamServerInterceptor()),
+	)
+
+	//srv = grpc.NewServer()
 
 	svc := &productCatalog{}
 

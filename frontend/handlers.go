@@ -71,6 +71,7 @@ func (fe *frontendServer) homeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	ps := make([]productView, len(products))
 	for i, p := range products {
+		//price := p.GetPriceUsd()
 		price, err := fe.convertCurrency(r.Context(), p.GetPriceUsd(), currentCurrency(r))
 		if err != nil {
 			renderHTTPError(log, r, w, errors.Wrapf(err, "failed to do currency conversion for product %s", p.GetId()), http.StatusInternalServerError)
@@ -99,9 +100,6 @@ func (fe *frontendServer) homeHandler(w http.ResponseWriter, r *http.Request) {
 	}); err != nil {
 		log.Error(err)
 	}
-	fmt.Printf("hello")
-	return
-
 }
 
 func (plat *platformDetails) setPlatformDetails(env string) {
@@ -147,6 +145,7 @@ func (fe *frontendServer) productHandler(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
+	//price := p.GetPriceUsd()
 	price, err := fe.convertCurrency(r.Context(), p.GetPriceUsd(), currentCurrency(r))
 	if err != nil {
 		renderHTTPError(log, r, w, errors.Wrap(err, "failed to convert currency"), http.StatusInternalServerError)
@@ -269,7 +268,6 @@ func (fe *frontendServer) viewCartHandler(w http.ResponseWriter, r *http.Request
 			Price:    &multPrice}
 		totalPrice = money.Must(money.Sum(totalPrice, multPrice))
 	}
-	totalPrice = money.Must(money.Sum(totalPrice, *shippingCost))
 
 	year := time.Now().Year()
 	if err := templates.ExecuteTemplate(w, "cart", map[string]interface{}{

@@ -29,7 +29,4 @@
   <ItemGroup>
     <Protobuf Include="protos\Cart.proto" GrpcServices="Server" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 </Project>

@@ -19,7 +19,6 @@ import (
 	"time"
 
 	pb "github.com/GoogleCloudPlatform/microservices-demo/src/frontend/genproto"
-
 	"github.com/pkg/errors"
 )
 
@@ -95,6 +94,7 @@ func (fe *frontendServer) getShippingQuote(ctx context.Context, items []*pb.Cart
 	localized, err := fe.convertCurrency(ctx, quote.GetCostUsd(), currency)
 	return localized, errors.Wrap(err, "failed to convert currency for shipping cost")
 }
+
 
 func (fe *frontendServer) getRecommendations(ctx context.Context, userID string, productIDs []string) ([]*pb.Product, error) {
 	resp, err := pb.NewRecommendationServiceClient(fe.recommendationSvcConn).ListRecommendations(ctx,

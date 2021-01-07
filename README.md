@@ -26,19 +26,15 @@ This doc explains how to build and run the Hipstershop source code locally.
       kubectl get pods
       kubectl get services
       kubectl get deployment
-       
       ```
        
-4. Docker images for the microservices are at : https://hub.docker.com/repository/docker/sohamsdeshmukh/tracing01
+4. Docker images for the microservices are at : https://hub.docker.com/repository/docker/sohamsdeshmukh/tracing01 
+     
 
-> Note : Need to change IP addres in kubernetes-manifests.yaml file according to your IP address.
-### Screenshot
-
- [![Screenshot of store homepage](./Dag.png)](./Dag.png)
 
 ## Steps to run on Docker
 
-> Note : Not need to run jaeger locally. It's in built in docker compose.
+> Note : No need to run jaeger locally. It is built in docker compose.
 
 1. Get the checkout of Docker_Compose_Addon branch
 2. Open the terminal and go to Hipstershop folder. Execute following command.
@@ -54,6 +50,10 @@ This doc explains how to build and run the Hipstershop source code locally.
   
   - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
   
+### Screenshot
+
+ [![Screenshot of store homepage](./Dag.png)](./Dag.png)
+
 
 ## Steps to run on Local Machine
 
@@ -133,6 +133,7 @@ This doc explains how to build and run the Hipstershop source code locally.
     
 9. Ad Service (Java)
 
+
     ```sh
     cd adservice
     gradle build
@@ -150,5 +151,4 @@ This doc explains how to build and run the Hipstershop source code locally.
   - Once run above all steps you can access frontend service at  http://localhost:8081
   - Start the jaeger either using binary file or using docker desktop http://localhost:16686/ , You will see traces in jaeger
     
-
 
