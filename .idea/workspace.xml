@@ -1,53 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a9d9c1f-ffb8-41a5-985b-1f4decee310c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/.vs/cartservice/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/.vs/cartservice/xs/UserPrefs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/.vs/cartservice/xs/project-cache/cartservice-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/.vs/cartservice/xs/project-cache/cartservice-Debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/WeatherForecast.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/cartservice.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/cartservice.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/scripts/build_image.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cartservice/scripts/docker_setup.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkoutservice/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkoutservice/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkoutservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currencyservice/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currencyservice/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currencyservice/tracing.js" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/tracing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/email_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/email_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/email_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/email_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/rpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/rpc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paymentservice/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paymentservice/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paymentservice/saveTransact.js" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/saveTransact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paymentservice/tracing.js" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/tracing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/server_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/server_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/recommendation_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/recommendation_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/tracing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="8a9d9c1f-ffb8-41a5-985b-1f4decee310c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +55,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608719942202</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Local Commit">
+      <created>1610019999624</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610019999624</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +80,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Kubernetes Addon" />
     <MESSAGE value="Node js improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Node js improvement" />
+    <MESSAGE value="Local Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Local Commit" />
   </component>
 </project>
