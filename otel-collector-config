@@ -1,0 +1,33 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:  
+  jaeger:
+    protocols:
+      grpc:
+      thrift_http:
+
+exporters:
+  jaeger_thrift:
+    url: "http://localdev.logicmonitor.com:8080/rest/traces/ingest"
+    headers:
+      Authorization: "Bearer YnBtODM0NThVbVh5OWFKRWFzMzU6RU03M1B5NW1YU2tQc1o2Mndiejl3dz09"
+      x-logicmonitor-account: "localdev"
+
+  otlphttp:
+    endpoint: "http://localdev.logicmonitor.com:8080/rest/traces/ingest"
+    headers:
+      Authorization: "Bearer YnBtODM0NThVbVh5OWFKRWFzMzU6RU03M1B5NW1YU2tQc1o2Mndiejl3dz09"
+      x-logicmonitor-account: "localdev"
+    insecure: true
+
+processors:
+  batch:
+
+service:
+  pipelines:
+
+    traces:
+      receivers: [jaeger,otlp]
+      exporters: [jaeger_thrift,otlphttp]
+      processors: []
