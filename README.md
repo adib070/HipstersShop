@@ -30,7 +30,9 @@ This doc explains how to build and run the Hipstershop source code locally.
        
 4. Docker images for the microservices are at : https://hub.docker.com/repository/docker/sohamsdeshmukh/tracing01 
      
+### Screenshot
 
+ [![Screenshot of store homepage](./Dag.png)](./Dag.png)
 
 ## Steps to run on Docker
 
@@ -49,11 +51,7 @@ This doc explains how to build and run the Hipstershop source code locally.
   - Once run above all steps you can access frontend service at  http://localhost:8081
   
   - Access the jaeger at http://localhost:16686/ , You will see traces in jaeger
-  
-### Screenshot
-
- [![Screenshot of store homepage](./Dag.png)](./Dag.png)
-
+ 
 
 ## Steps to run on Local Machine
 
