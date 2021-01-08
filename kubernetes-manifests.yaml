@@ -458,7 +458,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: vinitaaher/hipstershop:hipstersshop_ad
+          image: vinitaaher/hipstershop:ad_service
           ports:
             - containerPort: 9555
           env:
@@ -468,6 +468,8 @@ spec:
               value: "jaeger"
             - name: EXPORTER_ENDPOINT
               value: "jaeger:14250"
+            - name : SERVICE_NAME
+              value: "AdService"
           resources:
             requests:
               cpu: 200m
