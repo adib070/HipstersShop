@@ -143,7 +143,7 @@ func main() {
 	var PRODUCT_CATALOG_SERVICE_ADDR = os.Getenv("PRODUCT_CATALOG_SERVICE_ADDR")// "productcatlog:4000"
   var CURRENCY_SERVICE_ADDR = os.Getenv("CURRENCY_SERVICE_ADDR")//"currency:9000"
   var CART_SERVICE_ADDR = os.Getenv("CART_SERVICE_ADDR")//"cart:80"
-  var SHIPPING_SERVICE_ADDR = os.Getenv("SHIPPSERVICE_ADDR")//"shipping:50051"
+  var SHIPPING_SERVICE_ADDR = os.Getenv("SHIPPING_SERVICE_ADDR")//"shipping:50051"
   var PAYMENT_SERVICE_ADDR = os.Getenv("PAYMENT_SERVICE_ADDR")//"payment:8011"
   var EMAIL_SERVICE_ADDR = os.Getenv("EMAIL_SERVICE_ADDR")//"email:4009"
 
