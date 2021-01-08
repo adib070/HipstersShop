@@ -74,8 +74,10 @@ namespace cartservice
                     break;
                 case "jaeger":
                 default:
-             
-                    builder.AddAspNetCoreInstrumentation().AddJaegerExporter();
+                    var jaegerEndpoint = Environment.GetEnvironmentVariable("JAEGER_ENDPOINT") ?? "http://localhost:14268/api/traces";
+                    builder.AddAspNetCoreInstrumentation();
+                    var agenthost = Environment.GetEnvironmentVariable("AgentHost");
+                    JaegerExporterHelperExtensions.AddJaegerExporter(builder,options => options.AgentHost =agenthost );
                     Console.WriteLine("Jaeger Tracing completed");
                     break;
             }
