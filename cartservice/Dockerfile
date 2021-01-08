@@ -1,3 +1,4 @@
+
 FROM mcr.microsoft.com/dotnet/sdk:5.0.100 as builder
 WORKDIR /app
 COPY . .
@@ -17,14 +18,10 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.8/main' >> /etc/apk/repositori
     apk update --no-cache && \
     apk add --no-cache bash libc6-compat=1.1.19-r11
 
+EXPOSE "7528"
+
 ARG OTEL_EXPORTER_OTLP_ENDPOINT
 ENV OTEL_EXPORTER_OTLP_ENDPOINT=${OTEL_EXPORTER_OTLP_ENDPOINT}
-
-ARG JAEGER_ENDPOINT
-ENV JAEGER_ENDPOINT = ${JAEGER_ENDPOINT}
-
-ARG JAEGER_SERVICE_NAME
-ENV JAEGER_SERVICE_NAME = "CART"
 
 ARG OTEL_EXPORTER_OTLP_SPAN_ENDPOINT
 ENV OTEL_EXPORTER_OTLP_SPAN_ENDPOINT=${OTEL_EXPORTER_OTLP_SPAN_ENDPOINT}

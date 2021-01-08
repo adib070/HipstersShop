@@ -21,20 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8a9d9c1f-ffb8-41a5-985b-1f4decee310c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/adservice/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/adservice/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkoutservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutservice/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currencyservice/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/currencyservice/tracing.js" beforeDir="false" afterPath="$PROJECT_DIR$/currencyservice/tracing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailservice/email_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailservice/email_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cartservice/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cartservice/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/cartservice/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes-manifests.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes-manifests.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paymentservice/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paymentservice/tracing.js" beforeDir="false" afterPath="$PROJECT_DIR$/paymentservice/tracing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productcatalogservice/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/productcatalogservice/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendationservice/recommendation_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendationservice/recommendation_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shippingservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/shippingservice/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -12,7 +12,7 @@ spec:
         app: frontend
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -40,8 +40,6 @@ spec:
               value: "ad:9555"
             - name: JAEGER_ENDPOINT
               value: "http://jaeger:14268/api/traces"
-            - name: JAEGER_SERVICE_NAME
-              value: "frontend"
           resources:
             requests:
               cpu: 100m
@@ -77,7 +75,7 @@ spec:
         app: currency
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -135,7 +133,7 @@ spec:
         app: productcatlog
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -185,7 +183,7 @@ spec:
         app: recommended
     spec:
       hostAliases:
-        - ip: "192.168.0.102"
+        - ip: "192.168.9.151"
           hostnames:
           - "jaeger"
       containers:
@@ -237,21 +235,19 @@ spec:
         app: cart
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       containers:
         - name: server
-          image: adib070/cart
+          image: vinitaaher/hipstershop:hipstersshop_cart
           ports:
             - containerPort: 80
           env:
-            - name: AgentHost
-              value: "jaeger"
             - name: PORT
               value: "80"
             - name: JAEGER_ENDPOINT
-              value: "http://jaeger:14268/api/traces"
+              value: "http://jaeger-collector:14268/api/traces"
             - name: JAEGER_SERVICE_NAME
               value: "CART"
             - name: JAEGER_USER
@@ -293,7 +289,7 @@ spec:
         app: shipping
     spec:
       hostAliases:
-        - ip: "192.168.0.102"
+        - ip: "192.168.9.151"
           hostnames:
           - "jaeger"        
       containers:
@@ -341,7 +337,7 @@ spec:
         app: checkout
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       containers:
@@ -399,7 +395,7 @@ spec:
         app: payment
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       containers:
@@ -456,7 +452,7 @@ spec:
         app: ad
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -509,7 +505,7 @@ spec:
         app: email
     spec:
       hostAliases:
-      - ip: "192.168.0.102"
+      - ip: "192.168.9.151"
         hostnames:
         - "jaeger"
       serviceAccountName: default
