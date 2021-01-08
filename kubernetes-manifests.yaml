@@ -468,8 +468,6 @@ spec:
               value: "jaeger"
             - name: EXPORTER_ENDPOINT
               value: "jaeger:14250"
-            - name: SERVICE_NAME
-              value: "AdService"
           resources:
             requests:
               cpu: 200m
