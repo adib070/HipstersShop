@@ -244,10 +244,12 @@ spec:
           ports:
             - containerPort: 80
           env:
+            - name: AgentHost
+              value: "jaeger"
             - name: PORT
               value: "80"
             - name: JAEGER_ENDPOINT
-              value: "http://jaeger-collector:14268/api/traces"
+              value: "http://jaeger:14268/api/traces"
             - name: JAEGER_SERVICE_NAME
               value: "CART"
             - name: JAEGER_USER
