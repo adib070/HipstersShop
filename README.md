@@ -52,7 +52,7 @@ This doc explains how to build and run the Hipstershop source code locally.
   
 ### Screenshot
 
- [![Screenshot of store homepage](./Dag.png)](./Dag.png)
+ [![Screenshot of store homepage](./Screenshot 2021-01-08 at 3.20.28 PM.png)](./Screenshot 2021-01-08 at 3.20.28 PM.png)
 
 
 ## Steps to run on Local Machine
