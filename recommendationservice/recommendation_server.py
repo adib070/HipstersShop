@@ -8,11 +8,6 @@ from concurrent import futures
 #import googlecloudprofiler
 #from google.auth.exceptions import DefaultCredentialsError
 import grpc
-'''from opencensus.trace.exporters import print_exporter
-from opencensus.trace.exporters import stackdriver_exporter
-from opencensus.trace.ext.grpc import server_interceptor
-from opencensus.common.transports.async_ import AsyncTransport
-from opencensus.trace.samplers import always_on'''
 import demo_pb2
 import demo_pb2_grpc
 from grpc_health.v1 import health_pb2
@@ -25,6 +20,8 @@ from opentelemetry.sdk.trace.export import BatchExportSpanProcessor
 from opentelemetry.instrumentation.grpc import GrpcInstrumentorServer, server_interceptor
 #from opentelemetry.instrumentation.grpc.grpcext import intercept_server
 # create a JaegerSpanExporter
+user = os.environ['USER']
+password = os.environ['PASSWORD']
 jaeger_exporter = jaeger.JaegerSpanExporter(
     service_name='recommendation-service',
     # configure agent
@@ -79,7 +76,7 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
 if __name__ == "__main__":
     #logger.info(“initializing recommendationservice”)
     port = os.environ['PORT']
-    catalog_addr = "productcatlog:4000"
+    catalog_addr = os.environ['PRODUCT_CATALOG_SERVICE_ADDR']
 
     #logger.info(“product catalog address: ” + catalog_addr)
     channel = grpc.insecure_channel(catalog_addr)
