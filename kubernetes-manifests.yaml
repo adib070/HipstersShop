@@ -12,13 +12,13 @@ spec:
         app: frontend
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       serviceAccountName: default
       containers:
         - name: server
-          image: adib070/cart
+          image: sohamsdeshmukh/tracing01:hipstersshop_frontend
           ports:
             - containerPort: 8081
           env:
@@ -75,7 +75,7 @@ spec:
         app: currency
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -133,7 +133,7 @@ spec:
         app: productcatlog
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -183,7 +183,7 @@ spec:
         app: recommended
     spec:
       hostAliases:
-        - ip: "192.168.9.151"
+        - ip: "192.168.0.102"
           hostnames:
           - "jaeger"
       containers:
@@ -235,12 +235,12 @@ spec:
         app: cart
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       containers:
         - name: server
-          image: vinitaaher/hipstershop:hipstersshop_cart
+          image: adib070/cart
           ports:
             - containerPort: 80
           env:
@@ -291,7 +291,7 @@ spec:
         app: shipping
     spec:
       hostAliases:
-        - ip: "192.168.9.151"
+        - ip: "192.168.0.102"
           hostnames:
           - "jaeger"        
       containers:
@@ -339,7 +339,7 @@ spec:
         app: checkout
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       containers:
@@ -397,7 +397,7 @@ spec:
         app: payment
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       containers:
@@ -454,7 +454,7 @@ spec:
         app: ad
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       serviceAccountName: default
@@ -507,7 +507,7 @@ spec:
         app: email
     spec:
       hostAliases:
-      - ip: "192.168.9.151"
+      - ip: "192.168.0.102"
         hostnames:
         - "jaeger"
       serviceAccountName: default
