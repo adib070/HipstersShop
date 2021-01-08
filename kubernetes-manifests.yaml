@@ -18,7 +18,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: sohamsdeshmukh/tracing01:hipstersshop_frontend
+          image: adib070/cart
           ports:
             - containerPort: 8081
           env:
