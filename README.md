@@ -12,8 +12,9 @@ This doc explains how to build and run the Hipstershop source code locally.
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/) (optional - see Local Cluster)
 
 ## Steps to run on Kubernetes
-1. Get the checkout of k8s_Addon branch
-2. Open the terminal and go to Hipstershop folder. Execute following command.
+1. Get the checkout of k8s_Addon branch.
+2. Change all the hostAliases ip in kubernetes-manifests.yaml to your local machine ip address.
+3. Open the terminal and go to Hipstershop folder. Execute following command.
  
      ```sh
    minikube start
